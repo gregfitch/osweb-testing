@@ -27,11 +27,11 @@ broken_links = []
 for link in qalinks:
     r = requests.get(link)
     status = r.status_code
-    if status != 200:
+    if r.ok:
+        print (link + ': OK')
+    else:
         print ('Error code ' + str(status) + ' found on: ' + link)
         broken_links.append(link)
-    else:
-        print (link + ': OK')
 
 print('Number of broken links: ' + str(len(broken_links)))
 
