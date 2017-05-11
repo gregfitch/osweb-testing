@@ -1,5 +1,5 @@
 """
-Test C96704, with API update.
+Test C96704, with API update: on the homepage banner click on Explore All Subjects, you should be re-directed to the All subjects page
 """
 
 from pprint import pprint

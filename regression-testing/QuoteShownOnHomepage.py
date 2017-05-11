@@ -1,5 +1,5 @@
 """
-Test C96699
+Test C96699: Homepage displays a quote from one of our textbook heroes
 """
 
 from selenium import webdriver
