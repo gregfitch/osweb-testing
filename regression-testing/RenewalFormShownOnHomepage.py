@@ -5,7 +5,6 @@ from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
-import sys
 
 url = 'https://oscms-qa.openstax.org/'
 
@@ -17,18 +16,13 @@ driver.get(url)
 
 wait = WebDriverWait(driver, 10)
 
-try:
-    renewal_form_button = wait.until(
-                    EC.element_to_be_clickable(
-                            (By.CSS_SELECTOR, '.full>.quote>a')
-                    )
-                  )
+renewal_form_button = wait.until(
+                EC.element_to_be_clickable(
+                        (By.CSS_SELECTOR, '.full>.quote>a')
+                )
+              )
 
-    renewal_form_button.click()
-except:
-    print ('FAIL: Renewal form button not found')
-    driver.quit()
-    raise SystemExit
+renewal_form_button.send_keys('\n')
 
 print (driver.current_url)
 
