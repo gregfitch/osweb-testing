@@ -21,22 +21,17 @@ wait = WebDriverWait(driver, 10)
 xpath_license = '//a[@href="/license"]'
 
 # try clicking the link
-try:
-    link =  wait.until(
-                EC.element_to_be_clickable(
-                        (By.XPATH, xpath_license)
-                )
-              )
+link =  wait.until(
+            EC.element_to_be_clickable(
+                    (By.XPATH, xpath_license)
+            )
+          )
 
-    link.click()
-except:
-    print ('FAIL, License link not found')
-    driver.quit()
-    sys.exit()
+link.send_keys('\n')
 
-# check if license page content loads
+# check if page content loads
 try:
-    loaded = wait.until(
+    wait.until(
                 EC.presence_of_element_located(
                         (By.CLASS_NAME, 'loaded')
                 )
