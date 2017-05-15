@@ -5,7 +5,6 @@ Test C96704, with API update: on the homepage banner click on Explore All Subjec
 from pprint import pprint
 from testrail import *
 import os
-import sys
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
@@ -27,18 +26,13 @@ driver.get(url)
 wait = WebDriverWait(driver, 10)
 
 # look for Explore All Subjects button
-try:
-    eas_button = wait.until(
-        EC.element_to_be_clickable(
-            (By.CLASS_NAME, 'explore-all')
-        )
+eas_button = wait.until(
+    EC.element_to_be_clickable(
+        (By.CLASS_NAME, 'explore-all')
     )
+)
 
-    eas_button.click()
-except:
-    print ('Explore All Subjects button not clickable')
-    driver.quit()
-    raise SystemExit
+eas_button.click()
 
 # xpath for AP microecon book cover == functional test of all content loading on the page
 xpath_apmicro = "//div/div[3]/div[1]/div/div[5]/div/div[3]/h3/img"
